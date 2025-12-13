@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Грань</title>
+  <title>Грань - Стеклянные конструкции</title>
   <style>
     * {
       margin: 0;
@@ -13,7 +13,9 @@
     body {
       font-family: 'Arial', sans-serif;
       overflow-x: hidden;
+      background: #f8f9fa;
     }
+    
     /* ================= ШАПКА ================= */
     header {
       background: rgba(255, 255, 255, 0.95);
@@ -24,7 +26,7 @@
       z-index: 1000;
     }
     .header-container {
-      max-width: 1400px;
+      max-width: 1600px;
       margin: 0 auto;
       padding: 0 20px;
       display: flex;
@@ -64,10 +66,11 @@
       transition: color 0.3s;
     }
     nav a:hover { color: #007bff; }
-    /* КНОПКА "НАПИСАТЬ НАМ" — БЕЛАЯ + ПРИ НАВЕДЕНИИ/НАЖАТИИ КРАСНАЯ + БЕЗ ПОДЧЁРКИВАНИЯ */
+    
+    /* КНОПКА "НАПИСАТЬ НАМ" */
     .btn-contact,
     .hero-btn {
-      text-decoration: none !important; /* Убираем подчёркивание полностью */
+      text-decoration: none !important;
       background: #ffffff;
       color: #007bff !important;
       border: 2px solid #007bff;
@@ -88,7 +91,7 @@
       border-color: #e63946;
       transform: translateY(-3px);
       box-shadow: 0 10px 25px rgba(230,57,70,0.4);
-      text-decoration: none !important; /* Гарантированно без подчёркивания */
+      text-decoration: none !important;
     }
     .hero-btn {
       padding: 18px 44px;
@@ -113,6 +116,7 @@
       background: #333;
       border-radius: 2px;
     }
+    
     /* ================= ГЛАВНЫЙ ЭКРАН С ВИДЕО ================= */
     .hero {
       position: relative;
@@ -148,7 +152,7 @@
       position: relative;
       z-index: 1;
       padding: 0 20px;
-      max-width: 1000px;
+      max-width: 1200px;
     }
     .hero-content h1 {
       font-size: 58px;
@@ -161,18 +165,273 @@
       margin-bottom: 50px;
       text-shadow: 0 2px 10px rgba(0,0,0,0.7);
     }
+    
+    /* ================= СЛАЙДЕР ================= */
+    .slider-section {
+      padding: 100px 20px;
+      background: white;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+    
+    .slider-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .slider-title {
+      font-size: 42px;
+      font-weight: 800;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .slider-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(to right, #007bff, #e63946);
+      border-radius: 2px;
+    }
+    
+    .slider-description {
+      font-size: 20px;
+      color: #666;
+      max-width: 1000px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+    
+    /* КОНТЕЙНЕР СЛАЙДЕРА - УВЕЛИЧЕН */
+    .slider-container {
+      position: relative;
+      max-width: 1400px; /* Увеличен максимальный размер */
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+      background: white;
+      height: 600px; /* Увеличенная высота */
+    }
+    
+    .slider {
+      display: flex;
+      transition: transform 0.5s ease;
+      height: 100%;
+    }
+    
+    .slide {
+      flex: 0 0 100%;
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+    
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Изменено с cover на contain для полного отображения */
+      display: block;
+      transition: transform 0.5s ease;
+      background: #f8f9fa; /* Фон для областей без изображения */
+      padding: 10px; /* Отступ внутри изображения */
+    }
+    
+    .slide:hover img {
+      transform: scale(1.01);
+    }
+    
+    .slide-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.8));
+      color: white;
+      padding: 25px 30px;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    
+    .slide:hover .slide-caption {
+      transform: translateY(0);
+    }
+    
+    .slide-caption h3 {
+      font-size: 26px; /* Увеличен шрифт */
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    
+    .slide-caption p {
+      font-size: 18px; /* Увеличен шрифт */
+      opacity: 0.9;
+    }
+    
+    /* УПРАВЛЕНИЕ СЛАЙДЕРОМ - ПЕРЕСТАВИЛ СЧЕТЧИК */
+    .slider-controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      margin-top: 40px;
+    }
+    
+    .slider-buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      width: 100%;
+    }
+    
+    .slider-btn {
+      background: white;
+      border: 2px solid #007bff;
+      color: #007bff;
+      width: 70px; /* Увеличен размер кнопок */
+      height: 70px;
+      border-radius: 50%;
+      font-size: 28px; /* Увеличен шрифт */
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .slider-btn:hover {
+      background: #007bff;
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,123,255,0.3);
+    }
+    
+    .slider-btn:active {
+      transform: translateY(-1px);
+    }
+    
+    /* ТОЧКИ И СЧЕТЧИК В ОДНОЙ СТРОКЕ */
+    .dots-and-counter {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      margin-top: 10px;
+    }
+    
+    .slider-dots {
+      display: flex;
+      gap: 15px; /* Увеличен промежуток между точками */
+    }
+    
+    .slider-dot {
+      width: 16px; /* Увеличен размер точек */
+      height: 16px;
+      border-radius: 50%;
+      background: #ddd;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .slider-dot.active {
+      background: #007bff;
+      transform: scale(1.3); /* Увеличен масштаб активной точки */
+    }
+    
+    .slider-dot:hover {
+      background: #007bff;
+      transform: scale(1.2);
+    }
+    
+    .slider-counter {
+      font-size: 20px; /* Увеличен шрифт */
+      font-weight: 600;
+      color: #2c3e50;
+      background: #f8f9fa;
+      padding: 12px 30px; /* Увеличен padding */
+      border-radius: 30px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      min-width: 140px; /* Минимальная ширина */
+      text-align: center;
+      order: 2; /* Помещаем счетчик после точек */
+    }
+    
+    /* СТИЛИ ДЛЯ ИЗОБРАЖЕНИЙ */
+    .image-wrapper {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px; /* Отступы вокруг изображения */
+    }
+    
     /* ================= АДАПТИВ ================= */
-    @media (max-width: 1100px) {
+    @media (max-width: 1600px) {
+      .slider-container {
+        max-width: 1200px;
+        height: 550px;
+      }
+    }
+    
+    @media (max-width: 1400px) {
+      .slider-container {
+        max-width: 1100px;
+        height: 500px;
+      }
+    }
+    
+    @media (max-width: 1200px) {
       nav ul { gap: 30px; }
       nav a { font-size: 18px; }
+      .slider-container {
+        max-width: 900px;
+        height: 450px;
+      }
+      .slider-title { font-size: 38px; }
+      .slide-caption h3 { font-size: 24px; }
+      .slide-caption p { font-size: 16px; }
+      .slider-btn {
+        width: 65px;
+        height: 65px;
+        font-size: 26px;
+      }
     }
+    
     @media (max-width: 992px) {
       .header-container { height: 90px; }
       .logo img { height: 70px; }
       .logo { font-size: 28px; }
       .hero-content h1 { font-size: 46px; }
       .hero-content p { font-size: 22px; }
+      .slider-container {
+        max-width: 800px;
+        height: 400px;
+      }
+      .slider-title { font-size: 36px; }
+      .slider-btn {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+      }
+      .slider-counter {
+        font-size: 18px;
+        padding: 10px 25px;
+        min-width: 120px;
+      }
+      .slider-buttons {
+        gap: 30px;
+      }
     }
+    
     @media (max-width: 768px) {
       .header-container { height: 80px; padding: 0 15px; }
       .logo img { height: 60px; }
@@ -201,6 +460,105 @@
       .hero-content h1 { font-size: 38px; }
       .hero-content p { font-size: 19px; }
       .hero-btn { padding: 16px 36px; font-size: 18px; }
+      .slider-container {
+        max-width: 700px;
+        height: 350px;
+      }
+      .slider-title { font-size: 32px; }
+      .slider-description { font-size: 18px; padding: 0 15px; }
+      .slider-btn {
+        width: 55px;
+        height: 55px;
+        font-size: 22px;
+      }
+      .slider-buttons {
+        gap: 25px;
+      }
+      .dots-and-counter {
+        gap: 12px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .slider-container {
+        max-width: 100%;
+        height: 300px;
+        border-radius: 15px;
+      }
+      .slider-title { font-size: 28px; }
+      .slider-section { padding: 70px 15px; }
+      .slider-controls {
+        gap: 10px;
+      }
+      .slider-buttons {
+        gap: 20px;
+      }
+      .slide-caption {
+        padding: 15px 20px;
+        transform: translateY(0);
+        background: rgba(0,0,0,0.7);
+      }
+      .slide-caption h3 { 
+        font-size: 20px; 
+        margin-bottom: 5px;
+      }
+      .slide-caption p { 
+        font-size: 14px;
+      }
+      .slider-dot {
+        width: 14px;
+        height: 14px;
+      }
+      .slider-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+      }
+      .slide img {
+        padding: 5px;
+      }
+      .slider-counter {
+        font-size: 16px;
+        padding: 8px 20px;
+        min-width: 100px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .slider-container {
+        height: 250px;
+      }
+      .slide-caption h3 { 
+        font-size: 18px; 
+      }
+      .slide-caption p { 
+        font-size: 13px;
+      }
+      .slider-buttons {
+        gap: 15px;
+      }
+      .slider-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+      }
+      .slider-dots {
+        gap: 12px;
+      }
+    }
+    
+    @media (max-width: 380px) {
+      .slider-container {
+        height: 220px;
+      }
+      .slider-buttons {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+      .dots-and-counter {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -211,6 +569,7 @@
       <!-- Клик по логотипу обновляет страницу и прокручивает вверх -->
       <div class="logo" onclick="window.location.href = window.location.href.split('#')[0]; window.scrollTo(0, 0);">
         <img src="foro.jpg" alt="Логотип">
+        <span>Грань</span>
       </div>
 
       <nav>
@@ -245,15 +604,228 @@
     </div>
   </section>
 
+  <!-- СЛАЙДЕР -->
+  <section id="works" class="slider-section">
+    <div class="slider-header">
+      <h2 class="slider-title">Наши работы</h2>
+      <p class="slider-description">Посмотрите реализованные проекты по остеклению и установке стеклянных конструкций</p>
+    </div>
+    
+    <div class="slider-container">
+      <div class="slider">
+        <!-- Слайды будут добавлены через JavaScript -->
+      </div>
+    </div>
+    
+    <div class="slider-controls">
+      <div class="slider-buttons">
+        <button class="slider-btn prev-btn">&#10094;</button>
+        <button class="slider-btn next-btn">&#10095;</button>
+      </div>
+      
+      <div class="dots-and-counter">
+        <div class="slider-dots">
+          <!-- Точки будут добавлены через JavaScript -->
+        </div>
+        <div class="slider-counter">
+          <span id="current-slide">1</span> / <span id="total-slides">9</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Остальной контент -->
   <div style="height: 1500px; background: #f8f9fa; padding: 80px 20px; text-align: center; font-size: 24px;">
-    <p>Ниже идут разделы: Примеры работ, Отзывы, Контакты и т.д.</p>
+    <p>Ниже идут разделы: Отзывы, Контакты и т.д.</p>
   </div>
 
   <script>
     function toggleMenu() {
       document.querySelector('nav').classList.toggle('active');
     }
+
+    // Слайдер
+    document.addEventListener('DOMContentLoaded', function() {
+      const slider = document.querySelector('.slider');
+      const prevBtn = document.querySelector('.prev-btn');
+      const nextBtn = document.querySelector('.next-btn');
+      const currentSlideEl = document.getElementById('current-slide');
+      const totalSlidesEl = document.getElementById('total-slides');
+      const dotsContainer = document.querySelector('.slider-dots');
+      
+      // Данные для слайдов (9 изображений с описаниями)
+      const slidesData = [
+        {
+          image: 'фото1.jpg',
+          title: 'Безрамное остекление',
+          description: ''
+        },
+        {
+          image: 'фото2.jpg',
+          title: 'Перила',
+          description: ''
+        },
+        {
+          image: 'фото3.jpg',
+          title: 'Безрамное остекление',
+          description: ''
+        },
+        {
+          image: 'фото4.jpg',
+          title: 'Перила',
+          description: ''
+        },
+        {
+          image: 'фото5.jpg',
+          title: 'Перегородка',
+          description: ''
+        },
+        {
+          image: 'фото6.jpg',
+          title: 'Перегородка',
+          description: ''
+        },
+        {
+          image: 'фото7.jpg',
+          title: 'Перегородка',
+          description: ''
+        },
+        {
+          image: 'фото8.jpg',
+          title: 'Безрамное остекление',
+          description: ''
+        },
+        {
+          image: 'фото9.jpg',
+          title: 'Душевая кабина',
+          description: ''
+        }
+      ];
+      
+      // Создаем слайды
+      slidesData.forEach((slide, index) => {
+        const slideEl = document.createElement('div');
+        slideEl.className = 'slide';
+        
+        // Обертка для изображения
+        const imageWrapper = document.createElement('div');
+        imageWrapper.className = 'image-wrapper';
+        
+        const img = document.createElement('img');
+        img.src = slide.image;
+        img.alt = slide.title;
+        img.loading = 'lazy'; // Ленивая загрузка для производительности
+        
+        imageWrapper.appendChild(img);
+        
+        const caption = document.createElement('div');
+        caption.className = 'slide-caption';
+        caption.innerHTML = `
+          <h3>${slide.title}</h3>
+          <p>${slide.description}</p>
+        `;
+        
+        slideEl.appendChild(imageWrapper);
+        slideEl.appendChild(caption);
+        slider.appendChild(slideEl);
+        
+        // Создаем точки навигации
+        const dot = document.createElement('div');
+        dot.className = 'slider-dot';
+        if (index === 0) dot.classList.add('active');
+        dot.dataset.index = index;
+        dotsContainer.appendChild(dot);
+        
+        // Клик по точке
+        dot.addEventListener('click', function() {
+          const index = parseInt(this.dataset.index);
+          goToSlide(index);
+        });
+      });
+      
+      // Обновляем общее количество слайдов
+      totalSlidesEl.textContent = slidesData.length;
+      
+      let currentSlide = 0;
+      const totalSlides = slidesData.length;
+      
+      // Функция перехода к слайду
+      function goToSlide(index) {
+        currentSlide = index;
+        updateSlider();
+      }
+      
+      // Функция обновления слайдера
+      function updateSlider() {
+        const translateX = -currentSlide * 100;
+        slider.style.transform = `translateX(${translateX}%)`;
+        currentSlideEl.textContent = currentSlide + 1;
+        
+        // Обновляем активную точку
+        document.querySelectorAll('.slider-dot').forEach((dot, index) => {
+          dot.classList.toggle('active', index === currentSlide);
+        });
+      }
+      
+      // Следующий слайд
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateSlider();
+      }
+      
+      // Предыдущий слайд
+      function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateSlider();
+      }
+      
+      // Автопрокрутка (опционально)
+      let autoSlideInterval;
+      function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, 5000);
+      }
+      
+      function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+      }
+      
+      // Обработчики событий
+      prevBtn.addEventListener('click', () => {
+        prevSlide();
+        stopAutoSlide();
+        startAutoSlide();
+      });
+      
+      nextBtn.addEventListener('click', () => {
+        nextSlide();
+        stopAutoSlide();
+        startAutoSlide();
+      });
+      
+      // Останавливаем автопрокрутку при наведении на слайдер
+      slider.addEventListener('mouseenter', stopAutoSlide);
+      slider.addEventListener('mouseleave', startAutoSlide);
+      
+      // Инициализация
+      updateSlider();
+      startAutoSlide();
+      
+      // Клавиатурная навигация
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') prevSlide();
+        if (e.key === 'ArrowRight') nextSlide();
+      });
+      
+      // Предзагрузка изображений для плавной работы
+      function preloadImages() {
+        slidesData.forEach((slide) => {
+          const img = new Image();
+          img.src = slide.image;
+        });
+      }
+      
+      preloadImages();
+    });
   </script>
 </body>
 </html>

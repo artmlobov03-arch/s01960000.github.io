@@ -510,6 +510,158 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
     
+    /* ================= ПОДВАЛ ================= */
+    .footer {
+      background: #000000;
+      color: white;
+      padding: 80px 20px 40px;
+      margin-top: 100px;
+    }
+
+    .footer-container {
+      max-width: 1600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .footer-info {
+      text-align: center;
+      max-width: 800px;
+    }
+
+    .footer-title {
+      font-size: 42px;
+      font-weight: 800;
+      margin-bottom: 40px;
+      color: white;
+      position: relative;
+      display: inline-block;
+    }
+
+    .footer-title::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 4px;
+      background: #ffffff;
+      border-radius: 2px;
+    }
+
+    .contact-item {
+      margin-bottom: 30px;
+      font-size: 28px;
+      line-height: 1.8;
+    }
+
+    .contact-item strong {
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 32px;
+      display: inline-block;
+      min-width: 120px;
+      text-align: left;
+    }
+
+    .contact-text {
+      font-size: 28px;
+      font-weight: 600;
+      color: #f0f0f0;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: white;
+      transition: all 0.3s ease;
+      padding: 25px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      width: 180px;
+    }
+
+    .social-link:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-7px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    }
+
+    .social-icon {
+      width: 70px;
+      height: 70px;
+      margin-bottom: 15px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      font-weight: bold;
+      transition: transform 0.3s ease;
+    }
+
+    .social-link:hover .social-icon {
+      transform: scale(1.15);
+    }
+
+    .social-text {
+      font-size: 22px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .whatsapp .social-icon {
+      background: #25D366;
+    }
+
+    .telegram .social-icon {
+      background: #0088cc;
+    }
+
+    .phone .social-icon {
+      background: #e63946;
+    }
+
+    .footer-bottom {
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 2px solid rgba(255, 255, 255, 0.15);
+      text-align: center;
+      width: 100%;
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer-bottom p:first-child {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .footer-bottom a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-bottom a:hover {
+      text-decoration: underline;
+      color: #3498db;
+    }
+    
     /* ================= АДАПТИВ ================= */
     @media (max-width: 1600px) {
       .slider-container {
@@ -540,6 +692,36 @@
         height: 65px;
         font-size: 26px;
       }
+      .footer-title {
+        font-size: 38px;
+      }
+      
+      .contact-item {
+        font-size: 26px;
+      }
+      
+      .contact-item strong {
+        font-size: 30px;
+      }
+      
+      .contact-text {
+        font-size: 26px;
+      }
+      
+      .social-link {
+        width: 170px;
+        padding: 22px;
+      }
+      
+      .social-icon {
+        width: 65px;
+        height: 65px;
+        font-size: 30px;
+      }
+      
+      .social-text {
+        font-size: 20px;
+      }
     }
     
     @media (max-width: 992px) {
@@ -565,6 +747,37 @@
       }
       .slider-buttons {
         gap: 30px;
+      }
+      .footer-title {
+        font-size: 36px;
+      }
+      
+      .contact-item {
+        font-size: 24px;
+      }
+      
+      .contact-item strong {
+        font-size: 28px;
+        min-width: 110px;
+      }
+      
+      .contact-text {
+        font-size: 24px;
+      }
+      
+      .social-link {
+        width: 160px;
+        padding: 20px;
+      }
+      
+      .social-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+      }
+      
+      .social-text {
+        font-size: 19px;
       }
     }
     
@@ -635,6 +848,59 @@
       .modal-caption p {
         font-size: 16px;
       }
+      .footer {
+        padding: 60px 15px 30px;
+        margin-top: 70px;
+      }
+      
+      .footer-title {
+        font-size: 34px;
+        margin-bottom: 35px;
+      }
+      
+      .contact-item {
+        font-size: 22px;
+        margin-bottom: 25px;
+      }
+      
+      .contact-item strong {
+        font-size: 26px;
+        min-width: 100px;
+      }
+      
+      .contact-text {
+        font-size: 22px;
+      }
+      
+      .social-links {
+        gap: 25px;
+        margin-top: 35px;
+      }
+      
+      .social-link {
+        width: 150px;
+        padding: 18px;
+      }
+      
+      .social-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 26px;
+      }
+      
+      .social-text {
+        font-size: 18px;
+      }
+      
+      .footer-bottom {
+        font-size: 17px;
+        margin-top: 50px;
+        padding-top: 35px;
+      }
+      
+      .footer-bottom p:first-child {
+        font-size: 19px;
+      }
     }
     
     @media (max-width: 576px) {
@@ -701,6 +967,59 @@
       .modal-caption p {
         font-size: 14px;
       }
+      .footer-title {
+        font-size: 30px;
+      }
+      
+      .contact-item {
+        font-size: 20px;
+        margin-bottom: 20px;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .contact-item strong {
+        font-size: 24px;
+        min-width: auto;
+        margin-bottom: 5px;
+        text-align: center;
+      }
+      
+      .contact-text {
+        font-size: 20px;
+        text-align: center;
+      }
+      
+      .social-links {
+        gap: 20px;
+      }
+      
+      .social-link {
+        width: 140px;
+        padding: 16px;
+      }
+      
+      .social-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+      }
+      
+      .social-text {
+        font-size: 17px;
+      }
+      
+      .footer-bottom {
+        font-size: 16px;
+        margin-top: 40px;
+        padding-top: 30px;
+      }
+      
+      .footer-bottom p:first-child {
+        font-size: 18px;
+      }
     }
     
     @media (max-width: 480px) {
@@ -736,6 +1055,57 @@
         height: 30px;
         font-size: 16px;
       }
+      .footer-title {
+        font-size: 28px;
+      }
+      
+      .contact-item {
+        font-size: 19px;
+      }
+      
+      .contact-item strong {
+        font-size: 22px;
+      }
+      
+      .contact-text {
+        font-size: 19px;
+      }
+      
+      .social-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+      
+      .social-link {
+        width: 100%;
+        max-width: 280px;
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 18px 25px;
+        gap: 20px;
+      }
+      
+      .social-icon {
+        margin-bottom: 0;
+        flex-shrink: 0;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+      }
+      
+      .social-text {
+        text-align: left;
+        font-size: 18px;
+      }
+      
+      .footer-bottom {
+        font-size: 15px;
+      }
+      
+      .footer-bottom p:first-child {
+        font-size: 17px;
+      }
     }
     
     @media (max-width: 380px) {
@@ -750,6 +1120,34 @@
       .dots-and-counter {
         width: 100%;
       }
+      .footer-title {
+        font-size: 26px;
+      }
+      
+      .contact-item {
+        font-size: 18px;
+      }
+      
+      .contact-item strong {
+        font-size: 20px;
+      }
+      
+      .contact-text {
+        font-size: 18px;
+      }
+      
+      .social-link {
+        max-width: 260px;
+        padding: 16px 20px;
+      }
+      
+      .footer-bottom {
+        font-size: 14px;
+      }
+      
+      .footer-bottom p:first-child {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
@@ -757,7 +1155,6 @@
   <!-- ШАПКА -->
   <header>
     <div class="header-container">
-      <!-- Клик по логотипу обновляет страницу и прокручивает вверх -->
       <div class="logo" onclick="window.location.href = window.location.href.split('#')[0]; window.scrollTo(0, 0);">
         <img src="foro.jpg" alt="Логотип">
         <span>Грань</span>
@@ -769,7 +1166,7 @@
           <li><a href="#reviews">Отзывы</a></li>
           <li><a href="#contacts">Контакты</a></li>
           <li><a href="#cooperation">Сотрудничество</a></li>
-          <li><a href="#write" class="btn-contact">Написать нам</a></li>
+          <li><a href="#contacts" class="btn-contact">Написать нам</a></li>
         </ul>
       </nav>
 
@@ -791,7 +1188,7 @@
     <div class="hero-content">
       <h1>Стеклянные конструкции под ваш проект — от производителя в Краснодаре</h1>
       <p>Изготавливаем и устанавливаем безрамное остекление, перила из стекла, алюминиевые межкомнатные лофт перегородки, алюминиевые окна и двери, стеклянные душевые кабины, межкомнатные двери из стекла</p>
-      <a href="#write" class="btn-contact hero-btn">Написать нам</a>
+      <a href="#contacts" class="btn-contact hero-btn">Написать нам</a>
     </div>
   </section>
 
@@ -844,10 +1241,59 @@
     </div>
   </div>
 
-  <!-- Остальной контент -->
-  <div style="height: 1500px; background: #f8f9fa; padding: 80px 20px; text-align: center; font-size: 24px;">
-    <p>Ниже идут разделы: Отзывы, Контакты и т.д.</p>
-  </div>
+  <!-- ПОДВАЛ -->
+  <footer class="footer" id="contacts">
+    <div class="footer-container">
+      <div class="footer-info">
+        <h2 class="footer-title">Контакты</h2>
+        
+        <div class="contact-item">
+          <strong>Адрес:</strong>
+          <span class="contact-text">г.Краснодар, проезд Муромский, д.10</span>
+        </div>
+        
+        <div class="contact-item">
+          <strong>Телефон:</strong>
+          <span class="contact-text">+7 918 159-61-63</span>
+        </div>
+        
+        <div class="contact-item">
+          <strong>Email:</strong>
+          <span class="contact-text">gran123@list.ru</span>
+        </div>
+        
+        <div class="social-links">
+          <!-- WhatsApp -->
+          <a href="https://wa.me/79181596163" class="social-link whatsapp" target="_blank" rel="noopener noreferrer">
+            <div class="social-icon">
+              <span style="font-family: Arial;">W</span>
+            </div>
+            <span class="social-text">WhatsApp</span>
+          </a>
+          
+          <!-- Telegram -->
+          <a href="https://t.me/+79181596163" class="social-link telegram" target="_blank" rel="noopener noreferrer">
+            <div class="social-icon">
+              <span style="font-family: Arial;">T</span>
+            </div>
+            <span class="social-text">Telegram</span>
+          </a>
+          
+          <!-- Позвонить -->
+          <a href="tel:+79181596163" class="social-link phone">
+            <div class="social-icon">
+              <span style="font-family: Arial;">✆</span>
+            </div>
+            <span class="social-text">Позвонить</span>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>© 2018 «Грань». Стеклянные конструкции в Краснодаре. Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
 
   <script>
     function toggleMenu() {

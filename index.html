@@ -211,13 +211,13 @@
     /* КОНТЕЙНЕР СЛАЙДЕРА - УВЕЛИЧЕН */
     .slider-container {
       position: relative;
-      max-width: 1400px; /* Увеличен максимальный размер */
+      max-width: 1400px;
       margin: 0 auto;
       overflow: hidden;
       border-radius: 20px;
       box-shadow: 0 15px 40px rgba(0,0,0,0.1);
       background: white;
-      height: 600px; /* Увеличенная высота */
+      height: 600px;
     }
     
     .slider {
@@ -231,16 +231,18 @@
       position: relative;
       overflow: hidden;
       border-radius: 20px;
+      cursor: pointer;
     }
     
     .slide img {
       width: 100%;
       height: 100%;
-      object-fit: contain; /* Изменено с cover на contain для полного отображения */
+      object-fit: contain;
       display: block;
       transition: transform 0.5s ease;
-      background: #f8f9fa; /* Фон для областей без изображения */
-      padding: 10px; /* Отступ внутри изображения */
+      background: #f8f9fa;
+      padding: 10px;
+      cursor: zoom-in;
     }
     
     .slide:hover img {
@@ -264,17 +266,17 @@
     }
     
     .slide-caption h3 {
-      font-size: 26px; /* Увеличен шрифт */
+      font-size: 26px;
       font-weight: 700;
       margin-bottom: 8px;
     }
     
     .slide-caption p {
-      font-size: 18px; /* Увеличен шрифт */
+      font-size: 18px;
       opacity: 0.9;
     }
     
-    /* УПРАВЛЕНИЕ СЛАЙДЕРОМ - ПЕРЕСТАВИЛ СЧЕТЧИК */
+    /* УПРАВЛЕНИЕ СЛАЙДЕРОМ */
     .slider-controls {
       display: flex;
       flex-direction: column;
@@ -295,10 +297,10 @@
       background: white;
       border: 2px solid #007bff;
       color: #007bff;
-      width: 70px; /* Увеличен размер кнопок */
+      width: 70px;
       height: 70px;
       border-radius: 50%;
-      font-size: 28px; /* Увеличен шрифт */
+      font-size: 28px;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -318,7 +320,7 @@
       transform: translateY(-1px);
     }
     
-    /* ТОЧКИ И СЧЕТЧИК В ОДНОЙ СТРОКЕ */
+    /* ТОЧКИ И СЧЕТЧИК */
     .dots-and-counter {
       display: flex;
       flex-direction: column;
@@ -329,11 +331,11 @@
     
     .slider-dots {
       display: flex;
-      gap: 15px; /* Увеличен промежуток между точками */
+      gap: 15px;
     }
     
     .slider-dot {
-      width: 16px; /* Увеличен размер точек */
+      width: 16px;
       height: 16px;
       border-radius: 50%;
       background: #ddd;
@@ -343,7 +345,7 @@
     
     .slider-dot.active {
       background: #007bff;
-      transform: scale(1.3); /* Увеличен масштаб активной точки */
+      transform: scale(1.3);
     }
     
     .slider-dot:hover {
@@ -352,26 +354,160 @@
     }
     
     .slider-counter {
-      font-size: 20px; /* Увеличен шрифт */
+      font-size: 20px;
       font-weight: 600;
       color: #2c3e50;
       background: #f8f9fa;
-      padding: 12px 30px; /* Увеличен padding */
+      padding: 12px 30px;
       border-radius: 30px;
       box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-      min-width: 140px; /* Минимальная ширина */
+      min-width: 140px;
       text-align: center;
-      order: 2; /* Помещаем счетчик после точек */
+      order: 2;
     }
     
-    /* СТИЛИ ДЛЯ ИЗОБРАЖЕНИЙ */
+    /* ОБЕРТКА ДЛЯ ИЗОБРАЖЕНИЙ */
     .image-wrapper {
       width: 100%;
       height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px; /* Отступы вокруг изображения */
+      padding: 20px;
+    }
+    
+    /* ================= МОДАЛЬНОЕ ОКНО ДЛЯ УВЕЛИЧЕНИЯ ================= */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+      cursor: pointer;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-content {
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+      width: auto;
+      height: auto;
+      cursor: default;
+      transform: scale(0.8);
+      transition: transform 0.4s ease;
+    }
+
+    .modal-overlay.active .modal-content {
+      transform: scale(1);
+    }
+
+    .modal-img {
+      max-width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: -50px;
+      right: -15px;
+      background: rgba(255, 255, 255, 0.15);
+      border: none;
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 28px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+    }
+
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: rotate(90deg);
+    }
+
+    .modal-nav {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 30px;
+      transform: translateY(-50%);
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .modal-nav-btn {
+      background: rgba(255, 255, 255, 0.15);
+      border: none;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      font-size: 30px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+      pointer-events: auto;
+    }
+
+    .modal-nav-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.1);
+    }
+
+    .modal-caption {
+      position: absolute;
+      bottom: -60px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: white;
+      padding: 15px;
+    }
+
+    .modal-caption h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .modal-caption p {
+      font-size: 18px;
+      opacity: 0.8;
+    }
+
+    .slide img {
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .slide img:hover {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
     
     /* ================= АДАПТИВ ================= */
@@ -477,6 +613,28 @@
       .dots-and-counter {
         gap: 12px;
       }
+      /* Адаптив для модального окна */
+      .modal-nav {
+        padding: 0 15px;
+      }
+      .modal-nav-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+      }
+      .modal-close {
+        top: -40px;
+        right: -10px;
+        width: 40px;
+        height: 40px;
+        font-size: 22px;
+      }
+      .modal-caption h3 {
+        font-size: 20px;
+      }
+      .modal-caption p {
+        font-size: 16px;
+      }
     }
     
     @media (max-width: 576px) {
@@ -522,6 +680,27 @@
         padding: 8px 20px;
         min-width: 100px;
       }
+      /* Адаптив для модального окна */
+      .modal-nav-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+      }
+      .modal-close {
+        top: -35px;
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+      }
+      .modal-caption {
+        bottom: -50px;
+      }
+      .modal-caption h3 {
+        font-size: 18px;
+      }
+      .modal-caption p {
+        font-size: 14px;
+      }
     }
     
     @media (max-width: 480px) {
@@ -544,6 +723,18 @@
       }
       .slider-dots {
         gap: 12px;
+      }
+      /* Адаптив для модального окна */
+      .modal-nav-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+      }
+      .modal-close {
+        top: -30px;
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
       }
     }
     
@@ -634,6 +825,25 @@
     </div>
   </section>
 
+  <!-- МОДАЛЬНОЕ ОКНО ДЛЯ УВЕЛИЧЕННОГО ПРОСМОТРА -->
+  <div class="modal-overlay" id="imageModal">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose">&times;</button>
+      
+      <div class="modal-nav">
+        <button class="modal-nav-btn" id="modalPrevBtn">&#10094;</button>
+        <button class="modal-nav-btn" id="modalNextBtn">&#10095;</button>
+      </div>
+      
+      <img class="modal-img" id="modalImg" src="" alt="">
+      
+      <div class="modal-caption">
+        <h3 id="modalTitle"></h3>
+        <p id="modalDescription"></p>
+      </div>
+    </div>
+  </div>
+
   <!-- Остальной контент -->
   <div style="height: 1500px; background: #f8f9fa; padding: 80px 20px; text-align: center; font-size: 24px;">
     <p>Ниже идут разделы: Отзывы, Контакты и т.д.</p>
@@ -644,7 +854,56 @@
       document.querySelector('nav').classList.toggle('active');
     }
 
-    // Слайдер
+    // Данные для слайдов (9 изображений с описаниями)
+    const slidesData = [
+      {
+        image: 'фото1.jpg',
+        title: 'Безрамное остекление',
+        description: ''
+      },
+      {
+        image: 'фото2.jpg',
+        title: 'Перила',
+        description: ''
+      },
+      {
+        image: 'фото3.jpg',
+        title: 'Безрамное остекление',
+        description: ''
+      },
+      {
+        image: 'фото4.jpg',
+        title: 'Перила',
+        description: ''
+      },
+      {
+        image: 'фото5.jpg',
+        title: 'Перегородка',
+        description: ''
+      },
+      {
+        image: 'фото6.jpg',
+        title: 'Перегородка',
+        description: ''
+      },
+      {
+        image: 'фото7.jpg',
+        title: 'Перегородка',
+        description: ''
+      },
+      {
+        image: 'фото8.jpg',
+        title: 'Безрамное остекление',
+        description: ''
+      },
+      {
+        image: 'фото9.jpg',
+        title: 'Душевая кабина',
+        description: ''
+      }
+    ];
+
+    // Основной слайдер
     document.addEventListener('DOMContentLoaded', function() {
       const slider = document.querySelector('.slider');
       const prevBtn = document.querySelector('.prev-btn');
@@ -653,59 +912,14 @@
       const totalSlidesEl = document.getElementById('total-slides');
       const dotsContainer = document.querySelector('.slider-dots');
       
-      // Данные для слайдов (9 изображений с описаниями)
-      const slidesData = [
-        {
-          image: 'фото1.jpg',
-          title: 'Безрамное остекление',
-          description: ''
-        },
-        {
-          image: 'фото2.jpg',
-          title: 'Перила',
-          description: ''
-        },
-        {
-          image: 'фото3.jpg',
-          title: 'Безрамное остекление',
-          description: ''
-        },
-        {
-          image: 'фото4.jpg',
-          title: 'Перила',
-          description: ''
-        },
-        {
-          image: 'фото5.jpg',
-          title: 'Перегородка',
-          description: ''
-        },
-        {
-          image: 'фото6.jpg',
-          title: 'Перегородка',
-          description: ''
-        },
-        {
-          image: 'фото7.jpg',
-          title: 'Перегородка',
-          description: ''
-        },
-        {
-          image: 'фото8.jpg',
-          title: 'Безрамное остекление',
-          description: ''
-        },
-        {
-          image: 'фото9.jpg',
-          title: 'Душевая кабина',
-          description: ''
-        }
-      ];
+      let currentSlide = 0;
+      const totalSlides = slidesData.length;
       
       // Создаем слайды
       slidesData.forEach((slide, index) => {
         const slideEl = document.createElement('div');
         slideEl.className = 'slide';
+        slideEl.dataset.index = index;
         
         // Обертка для изображения
         const imageWrapper = document.createElement('div');
@@ -714,7 +928,8 @@
         const img = document.createElement('img');
         img.src = slide.image;
         img.alt = slide.title;
-        img.loading = 'lazy'; // Ленивая загрузка для производительности
+        img.loading = 'lazy';
+        img.dataset.index = index;
         
         imageWrapper.appendChild(img);
         
@@ -744,10 +959,7 @@
       });
       
       // Обновляем общее количество слайдов
-      totalSlidesEl.textContent = slidesData.length;
-      
-      let currentSlide = 0;
-      const totalSlides = slidesData.length;
+      totalSlidesEl.textContent = totalSlides;
       
       // Функция перехода к слайду
       function goToSlide(index) {
@@ -779,7 +991,7 @@
         updateSlider();
       }
       
-      // Автопрокрутка (опционально)
+      // Автопрокрутка
       let autoSlideInterval;
       function startAutoSlide() {
         autoSlideInterval = setInterval(nextSlide, 5000);
@@ -789,7 +1001,7 @@
         clearInterval(autoSlideInterval);
       }
       
-      // Обработчики событий
+      // Обработчики событий для основного слайдера
       prevBtn.addEventListener('click', () => {
         prevSlide();
         stopAutoSlide();
@@ -806,17 +1018,19 @@
       slider.addEventListener('mouseenter', stopAutoSlide);
       slider.addEventListener('mouseleave', startAutoSlide);
       
-      // Инициализация
+      // Инициализация основного слайдера
       updateSlider();
       startAutoSlide();
       
-      // Клавиатурная навигация
+      // Клавиатурная навигация для основного слайдера
       document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') prevSlide();
-        if (e.key === 'ArrowRight') nextSlide();
+        if (!modal.classList.contains('active')) {
+          if (e.key === 'ArrowLeft') prevSlide();
+          if (e.key === 'ArrowRight') nextSlide();
+        }
       });
       
-      // Предзагрузка изображений для плавной работы
+      // Предзагрузка изображений
       function preloadImages() {
         slidesData.forEach((slide) => {
           const img = new Image();
@@ -825,6 +1039,109 @@
       }
       
       preloadImages();
+
+      // ================= МОДАЛЬНОЕ ОКНО =================
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalDescription = document.getElementById('modalDescription');
+      const modalClose = document.getElementById('modalClose');
+      const modalPrevBtn = document.getElementById('modalPrevBtn');
+      const modalNextBtn = document.getElementById('modalNextBtn');
+      
+      let currentModalSlide = 0;
+      
+      // Функция открытия модального окна
+      function openModal(index) {
+        currentModalSlide = index;
+        updateModal();
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      
+      // Функция обновления модального окна
+      function updateModal() {
+        const slide = slidesData[currentModalSlide];
+        modalImg.src = slide.image;
+        modalImg.alt = slide.title;
+        modalTitle.textContent = slide.title;
+        modalDescription.textContent = slide.description;
+      }
+      
+      // Функция закрытия модального окна
+      function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+      
+      // Следующий слайд в модальном окне
+      function nextModalSlide() {
+        currentModalSlide = (currentModalSlide + 1) % totalSlides;
+        updateModal();
+      }
+      
+      // Предыдущий слайд в модальном окне
+      function prevModalSlide() {
+        currentModalSlide = (currentModalSlide - 1 + totalSlides) % totalSlides;
+        updateModal();
+      }
+      
+      // Добавляем обработчики кликов на изображения в слайдере
+      document.querySelectorAll('.slide img').forEach((img, index) => {
+        img.addEventListener('click', () => {
+          openModal(index);
+        });
+        
+        // Двойной клик для открытия
+        img.parentElement.parentElement.addEventListener('dblclick', () => {
+          openModal(index);
+        });
+      });
+      
+      // Обработчики событий для модального окна
+      modalClose.addEventListener('click', closeModal);
+      modalPrevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        prevModalSlide();
+      });
+      modalNextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        nextModalSlide();
+      });
+      
+      // Закрытие модального окна при клике на overlay
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+      
+      // Закрытие модального окна по клавише Escape
+      document.addEventListener('keydown', (e) => {
+        if (modal.classList.contains('active')) {
+          if (e.key === 'Escape') {
+            closeModal();
+          } else if (e.key === 'ArrowLeft') {
+            prevModalSlide();
+          } else if (e.key === 'ArrowRight') {
+            nextModalSlide();
+          }
+        }
+      });
+      
+      // Синхронизация с основным слайдером
+      function syncWithMainSlider() {
+        currentModalSlide = currentSlide;
+      }
+      
+      // Обновляем синхронизацию при изменении слайда
+      const originalUpdateSlider = updateSlider;
+      updateSlider = function() {
+        originalUpdateSlider();
+        if (!modal.classList.contains('active')) {
+          currentModalSlide = currentSlide;
+        }
+      };
     });
   </script>
 </body>
